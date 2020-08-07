@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ElementsService } from '../../services/elements.service';
-import { ProgressElements } from '../../interfaces/progress-elements';
+import { ProgressElements } from '../../interfaces/progress-elements.interface';
 import { ToastService } from '../../services/toast.service';
 import { TranslateService } from '@ngx-translate/core';
 

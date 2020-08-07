@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
-import { ElementPicsum } from '../../interfaces/elemenPicsumt';
+import { ElementPicsum } from '../../interfaces/elemen-picsum.interface';
 import { ElementsService } from '../../services/elements.service';
-import { ProgressElements } from 'src/app/interfaces/progress-elements';
+import { ProgressElements } from 'src/app/interfaces/progress-elements.interface';
 import { IonInfiniteScroll } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 

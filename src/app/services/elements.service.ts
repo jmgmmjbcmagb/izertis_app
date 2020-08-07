@@ -1,11 +1,8 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { ElementPicsum } from '../interfaces/elemenPicsumt';
+import { ElementPicsum } from '../interfaces/elemen-picsum.interface';
 import { environment } from '../../environments/environment';
-import { HttpClient } from '@angular/common/http';
-import { debug } from 'console';
 import { LoremIpsumService } from './lorem-ipsum.service';
-import { element } from 'protractor';
-import { ProgressElements } from '../interfaces/progress-elements';
+import { ProgressElements } from '../interfaces/progress-elements.interface';
 
 @Injectable({
   providedIn: 'root'

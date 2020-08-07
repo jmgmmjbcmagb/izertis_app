@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ElementPicsum } from '../../interfaces/elemenPicsumt';
+import { ElementPicsum } from '../../interfaces/elemen-picsum.interface';
 
 @Component({
   selector: 'app-card',
