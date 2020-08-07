@@ -7,6 +7,12 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
+  public literalFilter: string;
+
   constructor() {}
+
+  public filter(literal: string) {
+    this.literalFilter = literal;
+  }
 
 }

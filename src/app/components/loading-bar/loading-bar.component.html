@@ -1,0 +1,13 @@
+<ion-item *ngIf="!finishCharge" lines="full">
+    <ion-label>
+        <ion-grid>
+            <ion-row>
+                {{ 'CHARGE-ELEMENTS' | translate }}
+            </ion-row>
+            <ion-row>
+                <ion-progress-bar [value]="progress"></ion-progress-bar>
+            </ion-row>
+        </ion-grid>
+    </ion-label>
+    <ion-button slot="end"> {{ actualElements }} / {{ total }} </ion-button>
+</ion-item>
