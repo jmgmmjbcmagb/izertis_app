@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ElementsService } from '../../services/elements.service';
 import { ProgressElements } from '../../interfaces/progress-elements.interface';
 import { ToastService } from '../../services/toast.service';
-import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-loading-bar',
@@ -18,8 +17,7 @@ export class LoadingBarComponent implements OnInit {
 
   constructor(
     private elementsSrv: ElementsService,
-    private toastSrv: ToastService,
-    private translateService: TranslateService
+    private toastSrv: ToastService
   ) {}
 
   ngOnInit() {
@@ -32,8 +30,8 @@ export class LoadingBarComponent implements OnInit {
         this.actualElements = elemmentAdded.actualLength;
         this.progress = (this.actualElements * 100) / this.total / 100;
         if (this.actualElements === this.total) {
-          this.toastSrv.presentToast(this.translateService.instant('ALL-CHARGED'));
           this.finishCharge = true;
+          this.toastSrv.presentToast('ALL-CHARGED');
         }
       });
   }

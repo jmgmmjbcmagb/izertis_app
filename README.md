@@ -49,10 +49,6 @@ $ npm run build
 ```sh
 $ npm run test
 ```
-- Lanzar los test endtoend
-```sh
-$ npm run e2e
-```
 
 ### Consultas
 

@@ -4,21 +4,21 @@ import { IonicModule } from '@ionic/angular';
 import { SearchBarComponent } from './search-bar.component';
 
 describe('SearchBarComponent', () => {
+
   let component: SearchBarComponent;
-  let fixture: ComponentFixture<SearchBarComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ SearchBarComponent ],
-      imports: [IonicModule.forRoot()]
-    }).compileComponents();
+  beforeEach(() => (component = new SearchBarComponent()));
 
-    fixture = TestBed.createComponent(SearchBarComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  }));
+  it('Emit vaule checked', () => {
+    let valueCheck: string;
+    const msg = 'test';
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+    component.filterElemnts.subscribe((value: string) => {
+      valueCheck = value;
+    });
+
+    component.literalSearch(msg);
+
+    expect(valueCheck).toBe(msg);
   });
 });

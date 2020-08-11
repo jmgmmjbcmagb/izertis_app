@@ -52,13 +52,14 @@ export class CardsListComponent implements OnInit {
     this.allElements.push(...newElements);
   }
 
-  public updateListShow(event) {
+  public updateListShow(event?) {
+    this.addElements();
+    this.listElementShow = this.allElements;
+    if (event) {
     setTimeout(() => {
-      this.addElements();
-      this.listElementShow = this.allElements;
-      console.log(this.listElementShow);
-      event.target.complete();
-    }, 500);
+        event.target.complete();
+      }, 500);
+    }
   }
 
   public checkDisabled(): number {

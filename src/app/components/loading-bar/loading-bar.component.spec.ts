@@ -1,24 +1,46 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import { ElementsService } from '../../services/elements.service';
+import { ToastService } from '../../services/toast.service';
 
 import { LoadingBarComponent } from './loading-bar.component';
+import { ProgressElements } from '../../interfaces/progress-elements.interface';
 
 describe('LoadingBarComponent', () => {
   let component: LoadingBarComponent;
-  let fixture: ComponentFixture<LoadingBarComponent>;
+  let elService: ElementsService;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ LoadingBarComponent ],
-      imports: [IonicModule.forRoot()]
-    }).compileComponents();
+  beforeEach(() => {
+    elService = new ElementsService(null);
+    component = new LoadingBarComponent(
+      elService,
+      new ToastService(null, null)
+    );
+    component.ngOnInit();
+  });
 
-    fixture = TestBed.createComponent(LoadingBarComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  }));
+  it('Change total variable', () => {
+    const elAdded: ProgressElements = {
+      actualLength: 2,
+      total: 100,
+    };
+    elService.elementAdded.emit(elAdded);
+    expect(component.total).toBe(elAdded.total);
+  });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('Change actualElements variable', () => {
+    const elAdded: ProgressElements = {
+      actualLength: 2,
+      total: 100,
+    };
+    elService.elementAdded.emit(elAdded);
+    expect(component.actualElements).toBe(elAdded.actualLength);
+  });
+
+  it('Change finishCharge', () => {
+    const elAdded: ProgressElements = {
+      actualLength: 100,
+      total: 100,
+    };
+    elService.elementAdded.emit(elAdded);
+    expect(component.finishCharge).toBeTruthy();
   });
 });

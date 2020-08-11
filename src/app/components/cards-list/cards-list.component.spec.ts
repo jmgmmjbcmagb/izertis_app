@@ -1,24 +1,34 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+
 
 import { CardsListComponent } from './cards-list.component';
+import { ElementsService } from '../../services/elements.service';
+import { ProgressElements } from 'src/app/interfaces/progress-elements.interface';
+
+
 
 describe('CardsListComponent', () => {
+
   let component: CardsListComponent;
-  let fixture: ComponentFixture<CardsListComponent>;
+  let elService: ElementsService;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ CardsListComponent ],
-      imports: [IonicModule.forRoot()]
-    }).compileComponents();
-
-    fixture = TestBed.createComponent(CardsListComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  }));
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  beforeEach(() => {
+    elService = new ElementsService(null);
+    elService.elements = [{
+      id: 0,
+      photo: 'test',
+      text: 'test',
+    }];
+    component = new CardsListComponent(elService);
+    component.ngOnInit();
   });
+
+  it('addElements', () => {
+    component.updateListShow();
+    expect(component.listElementShow.length).toEqual(1);
+  });
+
+  it('check disable', () => {
+    expect(component.checkDisabled()).toBe(1);
+  });
+
 });
